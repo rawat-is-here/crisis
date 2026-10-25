@@ -12,7 +12,7 @@ const bytesToHumanReadable = (bytes: number) => {
   let unit = 0;
   let size = bytes;
 
-  while (size > 1 && unit < sizes.length - 1) {
+  while (size >= 1000 && unit < sizes.length - 1) {
     size /= 1000;
     unit += 1;
   }
