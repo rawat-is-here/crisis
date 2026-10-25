@@ -33,14 +33,7 @@ const sanitizeUser = (user, ctx) => {
 };
 
 const normalizeEmailIdentifier = (identifier) => {
-  const atIndex = identifier.lastIndexOf('@');
-
-  // Only the domain of an address is case insensitive.
-  if (atIndex === -1) {
-    return identifier;
-  }
-
-  return `${identifier.slice(0, atIndex)}@${identifier.slice(atIndex + 1).toLowerCase()}`;
+  return identifier.toLowerCase();
 };
 
 const extractDeviceId = (requestBody) => {
