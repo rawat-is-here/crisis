@@ -128,15 +128,7 @@ const countPages = (total: number, pageSize: number) => {
     return 0;
   }
 
-  let pages = 0;
-  let counted = 0;
-
-  while (counted + pageSize <= total) {
-    counted += pageSize;
-    pages += 1;
-  }
-
-  return pages;
+  return Math.ceil(total / pageSize);
 };
 
 /**
