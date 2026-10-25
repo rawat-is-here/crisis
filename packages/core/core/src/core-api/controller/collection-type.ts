@@ -17,7 +17,11 @@ const setCreatedResponse = (ctx: Koa.Context, created: unknown) => {
     return;
   }
 
-  const { documentId } = created as { documentId?: string };
+  const target = isObject((created as { data?: unknown }).data)
+    ? (created as { data: { documentId?: string } }).data
+    : (created as { documentId?: string });
+
+  const { documentId } = target;
 
   if (!documentId) {
     return;
