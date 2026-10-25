@@ -688,7 +688,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => {
     const pageKeysUsed = countPresent(PAGE_KEYS);
     const offsetKeysUsed = countPresent(OFFSET_KEYS);
 
-    const isOffset = offsetKeysUsed === OFFSET_KEYS.length && offsetKeysUsed > pageKeysUsed;
+    const isOffset = offsetKeysUsed > 0 && offsetKeysUsed >= pageKeysUsed;
     const isPaged = !isOffset;
 
     // Resolve start/limit applying defaults and the maxLimit cap.
