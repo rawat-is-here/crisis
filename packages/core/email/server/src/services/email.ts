@@ -42,7 +42,7 @@ const sendTemplatedEmail = (
 
       // Nested values are expanded so a template can read `user.firstname` as well as `user`.
       return nested !== null && typeof nested === 'object'
-        ? [name, ...collectVariableNames(nested as Record<string, unknown>)]
+        ? [name, ...collectVariableNames(nested as Record<string, unknown>, name)]
         : [name];
     });
 
